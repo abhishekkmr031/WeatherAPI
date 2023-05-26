@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WeatherAPI.Database;
 using WeatherAPI.Models;
@@ -17,12 +18,14 @@ namespace WeatherAPI.Controllers
 
 		}
 
+		[Authorize]
 		[HttpGet]
 		public async Task<IActionResult> GetQuestion()
 		{
 			return Ok(await _dbContext.quizzes.ToListAsync());
 		}
 
+		[Authorize]
 		[HttpPost]
 		public async Task<IActionResult> InsertQuiz(InsertQuizModel insertQuizModel)
 		{

@@ -5,7 +5,7 @@ using WeatherAPI.Models;
 
 namespace WeatherAPI.Database
 {
-	public class APIDbContext : DbContext
+	public class APIDbContext : IdentityDbContext
 	{
 		public APIDbContext(DbContextOptions options) : base(options)
 		{
